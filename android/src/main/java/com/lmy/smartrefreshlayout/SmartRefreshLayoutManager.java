@@ -73,7 +73,7 @@ private static final int COMMAND_BEGIN_REFRESH_ID=1;
     @Override
     public Map<String, Integer> getCommandsMap() {
         return MapBuilder.of(
-                COMMAND_FINISH_REFRESH_NAME,COMMAND_FINISH_REFRESH_ID
+                COMMAND_FINISH_REFRESH_NAME,COMMAND_FINISH_REFRESH_ID,
                 COMMAND_BEGIN_REFRESH_NAME,COMMAND_BEGIN_REFRESH_ID//新增
         );
     }
