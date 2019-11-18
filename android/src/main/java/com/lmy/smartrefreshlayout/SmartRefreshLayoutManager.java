@@ -42,7 +42,10 @@ public class SmartRefreshLayoutManager extends ViewGroupManager<ReactSmartRefres
 
     private static final String COMMAND_FINISH_REFRESH_NAME="finishRefresh";
     private static final int COMMAND_FINISH_REFRESH_ID=0;
-
+    //新增
+    private static final String COMMAND_BEGIN_REFRESH_NAME="beginRefresh";
+    //新增
+private static final int COMMAND_BEGIN_REFRESH_ID=1;
     @Override
     public String getName() {
         return REACT_CLASS;
@@ -71,6 +74,7 @@ public class SmartRefreshLayoutManager extends ViewGroupManager<ReactSmartRefres
     public Map<String, Integer> getCommandsMap() {
         return MapBuilder.of(
                 COMMAND_FINISH_REFRESH_NAME,COMMAND_FINISH_REFRESH_ID
+                COMMAND_BEGIN_REFRESH_NAME,COMMAND_BEGIN_REFRESH_ID//新增
         );
     }
     /**
@@ -183,6 +187,12 @@ public class SmartRefreshLayoutManager extends ViewGroupManager<ReactSmartRefres
                     root.finishRefresh(success);
                 }
                 break;
+            //新增
+            case COMMAND_BEGIN_REFRESH_ID:
+               if(!root.isRefreshing()){
+                   root.autoRefresh();
+               }
+                break;    
             default:break;
         }
     }

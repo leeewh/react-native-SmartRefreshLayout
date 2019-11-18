@@ -39,6 +39,11 @@ class SmartRefreshControl extends Component {
     finishRefresh=({delayed=-1,success=true}={delayed:-1,success:true})=>{
         this.dispatchCommand('finishRefresh',[delayed,success])
     }
+    //新增
+    beginRefresh=()=>{
+        this.dispatchCommand('beginRefresh',[])
+    }
+
     dispatchCommand=(commandName, params)=>{
         UIManager.dispatchViewManagerCommand(this.findNode(),
             (UIManager.getViewManagerConfig ? UIManager.getViewManagerConfig("SmartRefreshLayout"): UIManager.SmartRefreshLayout).Commands[commandName],
